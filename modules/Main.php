@@ -17,6 +17,8 @@ class Main
 
         add_filter( 'attachment_fields_to_edit', array(__CLASS__, 'attachment_fields_edit'), 10, 2 );
         add_filter( 'attachment_fields_to_save', array(__CLASS__, 'attachment_fields_save'), 10, 2 );
+
+        add_shortcode( 'mc_display_credits', array(__CLASS__, 'display_credits_shortcode') );
     }
 
     public static function wp_init()
@@ -29,7 +31,7 @@ class Main
 
     public static function get_license_types()
     {
-        return array(
+        return apply_filters( 'mc_license_types', array(
             'cc-by-2.0' => array (
                 'label'     => 'CC BY 2.0',
                 'fullname'  => 'Attribution 2.0 Generic',
@@ -41,7 +43,7 @@ class Main
                 'fullname'  => 'Attribution 4.0 International',
                 'deed'      => 'http://creativecommons.org/licenses/by/4.0/'
             ),
-        );
+        ));
     }
 
     public static function attachment_fields_edit( $form_fields, $post )
@@ -100,7 +102,7 @@ class Main
                 "</select>"
         );
 
-        return $form_fields;
+        return apply_filters( 'mc_attachment_fields', $form_fields );
     }
 
     public static function attachment_fields_save( $post, $attachment )
@@ -126,28 +128,29 @@ class Main
         return $post;
     }
 
-    public static function get_license_info( $attachment_id )
+    public static function get_credit_info( $attachment_id )
     {
-        return array(
+        $license_types = self::get_license_types();
+
+        return apply_filters( 'mc_get_credit_info', array(
             self::SLUG_SOURCE_TITLE => get_post_meta($attachment_id, self::SLUG_SOURCE_TITLE, true),
             self::SLUG_SOURCE_URL   => get_post_meta($attachment_id, self::SLUG_SOURCE_URL, true),
             self::SLUG_AUTHOR       => get_post_meta($attachment_id, self::SLUG_AUTHOR, true),
             self::SLUG_AUTHOR_URL   => get_post_meta($attachment_id, self::SLUG_AUTHOR_URL, true),
-            self::SLUG_LICENSE      => self::get_license_types()[get_post_meta($attachment_id, self::SLUG_LICENSE, true)],
-        );
+            self::SLUG_LICENSE      => $license_types[get_post_meta($attachment_id, self::SLUG_LICENSE, true)],
+        ));
     }
 
-    public static function license_info( $attachment_id, $args = array() )
+    public static function display_credits( $attachment_id, $args = array() )
     {
         $args = wp_parse_args( $args, array(
             'format' => 'one-line',
-            'echo'   => true
+            'echo'   => false
         ));
 
-        $info = self::get_license_info( $attachment_id );
+        $info = self::get_credit_info( $attachment_id );
 
-        if( !$args['echo'] )
-            ob_start();
+        ob_start();
 
         ?>
         <span id="mc-license-info-<?php echo $attachment_id ?>" class="mc-license-info">
@@ -187,9 +190,36 @@ class Main
         </span>
         <?php
 
+        $info = apply_filters( 'mc_display_credits', ob_get_clean(), $attachment_id, $args );
+
         if( !$args['echo'] )
-            return ob_get_clean();
+        {
+            return $info;
+        }
+        else
+        {
+            echo $info;
+        }
 
         return true;
+    }
+
+    public static function display_credits_shortcode( $atts )
+    {
+        $atts = shortcode_atts(
+            array(
+                'attachment_id' => 0,
+                'format'        => 'one-line',
+            ),
+            $atts,
+            'mc_display_credits'
+        );
+
+        if( !$atts['attachment_id'] )
+        {
+            return '<pre>' . __('The mc_display_credits must include the attachment_id, e.g. [mc_display_credits attachment_id="3768"]', MC_TEXT_DOMAIN) . '</pre>';
+        }
+
+        return self::display_credits( $atts['attachment_id'], $atts );
     }
 }

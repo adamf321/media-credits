@@ -3,7 +3,7 @@
 Plugin Name: Media Credits
 Description: Allows you to upload accreditation info to a media object and provides functions for accessing the data. This is required under the <a href="https://wiki.creativecommons.org/wiki/Best_practices_for_attribution" target="_blank">Creative Commons</a> license.
 Version: 1.0.0
-Author: Companamic
+Author: Solnamic
 Author URI: https://solnamic.com
 License: GPLv2 or later
 Text Domain: Media-Credits
@@ -23,12 +23,12 @@ include_once( "modules/Main.php" );
 /*
  * Wrapper functions for easy access
  */
-function mc_get_license_info( $attachment_id )
+function mc_get_credit_info( $attachment_id )
 {
-    return \MediaCredits\Modules\Main::get_license_info( $attachment_id );
+    return \MediaCredits\Modules\Main::get_credit_info( $attachment_id );
 }
 
-function mc_license_info( $attachment_id, $args = array() )
+function mc_display_credits( $attachment_id, $args = array() )
 {
-    return \MediaCredits\Modules\Main::license_info( $attachment_id, $args );
+    return \MediaCredits\Modules\Main::display_credits( $attachment_id, $args );
 }
