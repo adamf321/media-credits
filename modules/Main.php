@@ -217,7 +217,7 @@ class Main
 
         if( !$atts['attachment_id'] )
         {
-            return '<pre>' . __('The mc_display_credits must include the attachment_id, e.g. [mc_display_credits attachment_id="3768"]', MC_TEXT_DOMAIN) . '</pre>';
+            return '<pre>' . __('The mc_display_credits shortcode must include the attachment_id, e.g. [mc_display_credits attachment_id="3768"]', MC_TEXT_DOMAIN) . '</pre>';
         }
 
         return self::display_credits( $atts['attachment_id'], $atts );
