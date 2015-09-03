@@ -1,0 +1,93 @@
+# Copyright (C) 2015 Companamic
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Media Credits 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/media-credits\n"
+"POT-Creation-Date: 2015-09-03 00:15:45+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.2\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+
+#: modules/Main.php:40
+msgid "Original Title"
+msgstr ""
+
+#: modules/Main.php:43
+msgid "The original title of the media object"
+msgstr ""
+
+#: modules/Main.php:47
+msgid "Source Link"
+msgstr ""
+
+#: modules/Main.php:50
+msgid "Link to the original image"
+msgstr ""
+
+#: modules/Main.php:54
+msgid "Author"
+msgstr ""
+
+#: modules/Main.php:57
+msgid "Name of the author"
+msgstr ""
+
+#: modules/Main.php:61
+msgid "Author Profile Link"
+msgstr ""
+
+#: modules/Main.php:64
+msgid "Link to the author's profile page"
+msgstr ""
+
+#: modules/Main.php:83
+msgid "License"
+msgstr ""
+
+#: modules/Main.php:85
+msgid "Select the license under which the image can be used"
+msgstr ""
+
+#: modules/Main.php:157
+msgid "by"
+msgstr ""
+
+#: modules/Main.php:169
+msgid "is licensed under"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Media Credits"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Allows you to upload accreditation info to a media object and provides "
+"functions for accessing the data. This is required under the <a "
+"href=\"https://wiki.creativecommons.org/wiki/Best_practices_for_attribution\""
+" target=\"_blank\">Creative Commons</a> license."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Companamic"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://solnamic.com"
+msgstr ""

@@ -13,8 +13,18 @@ class Main
 
     public static function init()
     {
+        add_action( 'init', array(__CLASS__, 'wp_init') );
+
         add_filter( 'attachment_fields_to_edit', array(__CLASS__, 'attachment_fields_edit'), 10, 2 );
         add_filter( 'attachment_fields_to_save', array(__CLASS__, 'attachment_fields_save'), 10, 2 );
+    }
+
+    public static function wp_init()
+    {
+        load_textdomain(
+            MC_TEXT_DOMAIN,
+            MC_ROUTE_DIR . "/languages/" . get_locale() . ".mo"
+        );
     }
 
     public static function get_license_types()

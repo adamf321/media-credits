@@ -12,6 +12,9 @@ Text Domain: Media-Credits
 
 define( "MC_TEXT_DOMAIN", "Media-Credits" );
 
+define( "MC_ROUTE_DIR", dirname(__FILE__) );
+
+
 include_once( "modules/Main.php" );
 
 \MediaCredits\Modules\Main::init();
