@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Media Credits 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/media-credits\n"
-"POT-Creation-Date: 2015-09-03 16:32:17+00:00\n"
+"POT-Creation-Date: 2015-09-03 22:09:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,55 +24,59 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: modules/Main.php:52
+#: modules/Main.php:51
 msgid "Original Title"
 msgstr ""
 
-#: modules/Main.php:55
+#: modules/Main.php:54
 msgid "The original title of the media object"
 msgstr ""
 
-#: modules/Main.php:59
+#: modules/Main.php:58
 msgid "Source Link"
 msgstr ""
 
-#: modules/Main.php:62
+#: modules/Main.php:61
 msgid "Link to the original image"
 msgstr ""
 
-#: modules/Main.php:66
+#: modules/Main.php:65
 msgid "Author"
 msgstr ""
 
-#: modules/Main.php:69
+#: modules/Main.php:68
 msgid "Name of the author"
 msgstr ""
 
-#: modules/Main.php:73
+#: modules/Main.php:72
 msgid "Author Profile Link"
 msgstr ""
 
-#: modules/Main.php:76
+#: modules/Main.php:75
 msgid "Link to the author's profile page"
 msgstr ""
 
-#: modules/Main.php:95
+#: modules/Main.php:80
+msgid "Select license"
+msgstr ""
+
+#: modules/Main.php:94
 msgid "License"
 msgstr ""
 
-#: modules/Main.php:97
+#: modules/Main.php:96
 msgid "Select the license under which the image can be used"
 msgstr ""
 
-#: modules/Main.php:170
+#: modules/Main.php:172
 msgid "by"
 msgstr ""
 
-#: modules/Main.php:182
+#: modules/Main.php:184
 msgid "is licensed under"
 msgstr ""
 
-#: modules/Main.php:220
+#: modules/Main.php:222
 msgid ""
 "The mc_display_credits shortcode must include the attachment_id, e.g. "
 "[mc_display_credits attachment_id=\"3768\"]"
@@ -82,10 +86,15 @@ msgstr ""
 msgid "Media Credits"
 msgstr ""
 
+#. Plugin URI of the plugin/theme
+msgid "https://solnamic.com/plugins/media-credits"
+msgstr ""
+
 #. Description of the plugin/theme
 msgid ""
 "Allows you to upload accreditation info to a media object and provides "
-"functions for accessing the data. This is required under the <a "
+"functions and a shortcode for accessing the data. Great for developers and "
+"regular users alike. This is required under the <a "
 "href=\"https://wiki.creativecommons.org/wiki/Best_practices_for_attribution\""
 " target=\"_blank\">Creative Commons</a> license."
 msgstr ""

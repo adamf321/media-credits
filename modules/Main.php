@@ -25,7 +25,7 @@ class Main
     {
         load_textdomain(
             MC_TEXT_DOMAIN,
-            MC_ROUTE_DIR . "/languages/" . get_locale() . ".mo"
+            MC_ROOT_DIR . "/languages/" . get_locale() . ".mo"
         );
     }
 
@@ -35,8 +35,7 @@ class Main
             'cc-by-2.0' => array (
                 'label'     => 'CC BY 2.0',
                 'fullname'  => 'Attribution 2.0 Generic',
-                'deed'      => 'http://creativecommons.org/licenses/by/2.0/',
-                'default'   => true
+                'deed'      => 'http://creativecommons.org/licenses/by/2.0/'
             ),
             'cc-by' => array (
                 'label'     => 'CC BY',
@@ -78,15 +77,15 @@ class Main
 
 
         //get license options
-        $license_options = '';
+        $license_options = '<option value=""><-- ' . __('Select license', MC_TEXT_DOMAIN) . ' --></option>';
 
         $license_value = get_post_meta( $post->ID, self::SLUG_LICENSE, true );
-
+//todo: add dfault entry
         foreach( self::get_license_types() as $id => $license )
         {
             $license_options .=
                 "<option value='{$id}' " .
-                    selected( $license_value == $id || (!$license_value && $license['default']), true, false) .
+                    selected( $license_value, $id , false) .
                     ">{$license['label']} ({$license['fullname']})" .
                 "</option>";
         }
@@ -132,13 +131,16 @@ class Main
     {
         $license_types = self::get_license_types();
 
-        return apply_filters( 'mc_get_credit_info', array(
-            self::SLUG_SOURCE_TITLE => get_post_meta($attachment_id, self::SLUG_SOURCE_TITLE, true),
-            self::SLUG_SOURCE_URL   => get_post_meta($attachment_id, self::SLUG_SOURCE_URL, true),
-            self::SLUG_AUTHOR       => get_post_meta($attachment_id, self::SLUG_AUTHOR, true),
-            self::SLUG_AUTHOR_URL   => get_post_meta($attachment_id, self::SLUG_AUTHOR_URL, true),
-            self::SLUG_LICENSE      => $license_types[get_post_meta($attachment_id, self::SLUG_LICENSE, true)],
-        ));
+        return apply_filters( 'mc_get_credit_info',
+            array(
+                self::SLUG_SOURCE_TITLE => get_post_meta($attachment_id, self::SLUG_SOURCE_TITLE, true),
+                self::SLUG_SOURCE_URL   => get_post_meta($attachment_id, self::SLUG_SOURCE_URL, true),
+                self::SLUG_AUTHOR       => get_post_meta($attachment_id, self::SLUG_AUTHOR, true),
+                self::SLUG_AUTHOR_URL   => get_post_meta($attachment_id, self::SLUG_AUTHOR_URL, true),
+                self::SLUG_LICENSE      => $license_types[get_post_meta($attachment_id, self::SLUG_LICENSE, true)],
+            ),
+            $attachment_id
+        );
     }
 
     public static function display_credits( $attachment_id, $args = array() )
