@@ -32,15 +32,50 @@ class Main
     public static function get_license_types()
     {
         return apply_filters( 'mc_license_types', array(
+            'public-domain' => array (
+                'label'     => 'Public Domain',
+                'fullname'  => 'Public Domain Mark 1.0',
+                'deed'      => 'https://creativecommons.org/publicdomain/mark/1.0/'
+            ),
+            'cc0-1.0' => array (
+                'label'     => 'CC0 1.0',
+                'fullname'  => 'CC0 1.0 Universal',
+                'deed'      => 'https://creativecommons.org/publicdomain/zero/1.0/'
+            ),
             'cc-by-2.0' => array (
                 'label'     => 'CC BY 2.0',
                 'fullname'  => 'Attribution 2.0 Generic',
-                'deed'      => 'http://creativecommons.org/licenses/by/2.0/'
+                'deed'      => 'https://creativecommons.org/licenses/by/2.0/'
+            ),
+            'cc-by-sa-2.0' => array (
+                'label'     => 'CC BY-SA 2.0',
+                'fullname'  => 'Attribution-ShareAlike 2.0 Generic',
+                'deed'      => 'https://creativecommons.org/licenses/by-sa/2.0/'
+            ),
+            'cc-by-nd-2.0' => array (
+                'label'     => 'CC BY-ND 2.0',
+                'fullname'  => 'Attribution-NoDerivs 2.0 Generic',
+                'deed'      => 'https://creativecommons.org/licenses/by-nd/2.0/'
+            ),
+            'cc-by-nc-2.0' => array (
+                'label'     => 'CC BY-NC 2.0',
+                'fullname'  => 'Attribution-NonCommercial 2.0 Generic',
+                'deed'      => 'https://creativecommons.org/licenses/by-nc/2.0/'
+            ),
+            'cc-by-nc-sa-2.0' => array (
+                'label'     => 'CC BY-NC-SA 2.0',
+                'fullname'  => 'Attribution-NonCommercial-ShareAlike 2.0 Generic',
+                'deed'      => 'https://creativecommons.org/licenses/by-nc-sa/2.0/'
+            ),
+            'cc-by-nc-nd-2.0' => array (
+                'label'     => 'CC BY-NC-ND 2.0',
+                'fullname'  => 'Attribution-NonCommercial-NoDerivs 2.0 Generic',
+                'deed'      => 'https://creativecommons.org/licenses/by-nc-nd/2.0/'
             ),
             'cc-by' => array (
                 'label'     => 'CC BY',
                 'fullname'  => 'Attribution 4.0 International',
-                'deed'      => 'http://creativecommons.org/licenses/by/4.0/'
+                'deed'      => 'https://creativecommons.org/licenses/by/4.0/'
             ),
         ));
     }
@@ -80,7 +115,7 @@ class Main
         $license_options = '<option value=""><-- ' . __('Select license', MC_TEXT_DOMAIN) . ' --></option>';
 
         $license_value = get_post_meta( $post->ID, self::SLUG_LICENSE, true );
-//todo: add dfault entry
+
         foreach( self::get_license_types() as $id => $license )
         {
             $license_options .=
