@@ -72,10 +72,25 @@ class Main
                 'fullname'  => 'Attribution-NonCommercial-NoDerivs 2.0 Generic',
                 'deed'      => 'https://creativecommons.org/licenses/by-nc-nd/2.0/'
             ),
+            'cc-by-sa-2.5' => array (
+                'label'     => 'CC BY-SA 2.5',
+                'fullname'  => 'Attribution-ShareAlike 2.5 Generic',
+                'deed'      => 'https://creativecommons.org/licenses/by-sa/2.5/'
+            ),
+            'cc-by-sa-3.0' => array (
+                'label'     => 'CC BY-SA 3.0',
+                'fullname'  => 'Attribution-ShareAlike 3.0 Unported',
+                'deed'      => 'https://creativecommons.org/licenses/by-sa/3.0/'
+            ),
             'cc-by' => array (
                 'label'     => 'CC BY',
                 'fullname'  => 'Attribution 4.0 International',
                 'deed'      => 'https://creativecommons.org/licenses/by/4.0/'
+            ),
+            'cc-by-sa-4.0' => array (
+                'label'     => 'CC BY-SA 4.0',
+                'fullname'  => 'Attribution-ShareAlike 4.0 International',
+                'deed'      => 'https://creativecommons.org/licenses/by-sa/4.0/'
             ),
         ));
     }
