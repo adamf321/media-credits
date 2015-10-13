@@ -222,7 +222,7 @@ class Main
                     <?php _e('by', MC_TEXT_DOMAIN) ?>
 
                     <?php if( $info[self::SLUG_AUTHOR_URL] ) : ?>
-                        <a href="<?php $info[self::SLUG_AUTHOR_URL] ?>" target="_blank">
+                        <a href="<?php echo $info[self::SLUG_AUTHOR_URL] ?>" target="_blank">
                     <?php endif ?>
 
                     <?php echo $info[self::SLUG_AUTHOR] ?><?php echo ($info[self::SLUG_AUTHOR_URL] ? '</a>' : '') ?>
